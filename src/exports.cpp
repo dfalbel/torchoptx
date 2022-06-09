@@ -4,8 +4,8 @@
 #include <torchoptx/torchoptx.h>
 
 // [[Rcpp::export]]
-torchoptx::optim_sgd rcpp_torchoptx_sgd (torch::TensorList params) {
-  return  torchoptx_sgd(params.get());
+torchoptx::optim_sgd rcpp_torchoptx_sgd (torch::TensorList params, double lr, double momentum, double dampening, double weight_decay, bool nesterov) {
+  return  torchoptx_sgd(params.get(), lr, momentum, dampening, weight_decay, nesterov);
 }
 // [[Rcpp::export]]
 void rcpp_torchoptx_sgd_step (torchoptx::optim_sgd opt) {
@@ -16,8 +16,8 @@ void rcpp_torchoptx_sgd_zero_grad (torchoptx::optim_sgd opt) {
    torchoptx_sgd_zero_grad(opt.get());
 }
 // [[Rcpp::export]]
-torchoptx::optim_adam rcpp_torchoptx_adam (torch::TensorList params) {
-  return  torchoptx_adam(params.get());
+torchoptx::optim_adam rcpp_torchoptx_adam (torch::TensorList params, double lr, double betas0, double betas1, double eps, double weight_decay, bool amsgrad) {
+  return  torchoptx_adam(params.get(), lr, betas0, betas1, eps, weight_decay, amsgrad);
 }
 // [[Rcpp::export]]
 void rcpp_torchoptx_adam_step (torchoptx::optim_adam opt) {

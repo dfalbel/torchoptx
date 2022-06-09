@@ -17,20 +17,21 @@ Here’s a small example using `optim_sgd` from `torchoptx`.
 torchopt::test_optim(
     optim = torchoptx::optim_sgd,
     test_fn = "beale",
-    opt_hparams = list(),
+    opt_hparams = list(lr = 0.1),
     steps = 500,
     plot_each_step = TRUE
 )
 ```
 
-<img src="man/figures/README-sgd-.gif" width="50%" height="50%" /> And
-for `optim_adam`:
+<img src="man/figures/README-sgd-.gif" width="50%" height="50%" />
+
+And for `optim_adam`:
 
 ``` r
 torchopt::test_optim(
     optim = torchoptx::optim_adam,
     test_fn = "beale",
-    opt_hparams = list(),
+    opt_hparams = list(lr = 0.1),
     steps = 500,
     plot_each_step = TRUE
 )

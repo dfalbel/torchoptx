@@ -14,10 +14,10 @@ TORCHOPTX_API void torchoptx_last_error_clear()
   p_torchoptx_last_error = NULL;
 }
 
-optim_sgd torchoptx_sgd (torch::TensorList params);
-TORCHOPTX_API void* _torchoptx_sgd (void* params) {
+optim_sgd torchoptx_sgd (torch::TensorList params, double lr, double momentum, double dampening, double weight_decay, bool nesterov);
+TORCHOPTX_API void* _torchoptx_sgd (void* params, double lr, double momentum, double dampening, double weight_decay, bool nesterov) {
   try {
-    return  make_raw::SGD(torchoptx_sgd(from_raw::TensorList(params)));
+    return  make_raw::SGD(torchoptx_sgd(from_raw::TensorList(params), lr, momentum, dampening, weight_decay, nesterov));
   } TORCHOPTX_HANDLE_EXCEPTION
   return (void*) NULL;
 }
@@ -35,10 +35,10 @@ TORCHOPTX_API void _torchoptx_sgd_zero_grad (void* opt) {
   } TORCHOPTX_HANDLE_EXCEPTION
   
 }
-optim_adam torchoptx_adam (torch::TensorList params);
-TORCHOPTX_API void* _torchoptx_adam (void* params) {
+optim_adam torchoptx_adam (torch::TensorList params, double lr, double betas0, double betas1, double eps, double weight_decay, bool amsgrad);
+TORCHOPTX_API void* _torchoptx_adam (void* params, double lr, double betas0, double betas1, double eps, double weight_decay, bool amsgrad) {
   try {
-    return  make_raw::Adam(torchoptx_adam(from_raw::TensorList(params)));
+    return  make_raw::Adam(torchoptx_adam(from_raw::TensorList(params), lr, betas0, betas1, eps, weight_decay, amsgrad));
   } TORCHOPTX_HANDLE_EXCEPTION
   return (void*) NULL;
 }
