@@ -30,7 +30,11 @@ TORCHOPTX_API void torchoptx_last_error_clear();
 TORCHOPTX_API void* _torchoptx_sgd (void* params);
 TORCHOPTX_API void _torchoptx_sgd_step (void* opt);
 TORCHOPTX_API void _torchoptx_sgd_zero_grad (void* opt);
+TORCHOPTX_API void* _torchoptx_adam (void* params);
+TORCHOPTX_API void _torchoptx_adam_step (void* opt);
+TORCHOPTX_API void _torchoptx_adam_zero_grad (void* opt);
 TORCHOPTX_API void _delete_optim_sgd (void* x);
+TORCHOPTX_API void _delete_optim_adam (void* x);
 
 #ifdef RCPP_VERSION
 inline void* torchoptx_sgd (void* params) {
@@ -48,8 +52,28 @@ inline void torchoptx_sgd_zero_grad (void* opt) {
   host_exception_handler();
   
 }
+inline void* torchoptx_adam (void* params) {
+  auto ret =  _torchoptx_adam(params);
+  host_exception_handler();
+  return ret;
+}
+inline void torchoptx_adam_step (void* opt) {
+   _torchoptx_adam_step(opt);
+  host_exception_handler();
+  
+}
+inline void torchoptx_adam_zero_grad (void* opt) {
+   _torchoptx_adam_zero_grad(opt);
+  host_exception_handler();
+  
+}
 inline void delete_optim_sgd (void* x) {
    _delete_optim_sgd(x);
+  host_exception_handler();
+  
+}
+inline void delete_optim_adam (void* x) {
+   _delete_optim_adam(x);
   host_exception_handler();
   
 }

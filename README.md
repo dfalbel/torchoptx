@@ -23,4 +23,17 @@ torchopt::test_optim(
 )
 ```
 
-<img src="man/figures/README-sgd-.gif" width="50%" height="50%" />
+<img src="man/figures/README-sgd-.gif" width="50%" height="50%" /> And
+for `optim_adam`:
+
+``` r
+torchopt::test_optim(
+    optim = torchoptx::optim_adam,
+    test_fn = "beale",
+    opt_hparams = list(),
+    steps = 500,
+    plot_each_step = TRUE
+)
+```
+
+<img src="man/figures/README-adam-.gif" width="50%" height="50%" />

@@ -16,6 +16,22 @@ void rcpp_torchoptx_sgd_zero_grad (torchoptx::optim_sgd opt) {
    torchoptx_sgd_zero_grad(opt.get());
 }
 // [[Rcpp::export]]
+torchoptx::optim_adam rcpp_torchoptx_adam (torch::TensorList params) {
+  return  torchoptx_adam(params.get());
+}
+// [[Rcpp::export]]
+void rcpp_torchoptx_adam_step (torchoptx::optim_adam opt) {
+   torchoptx_adam_step(opt.get());
+}
+// [[Rcpp::export]]
+void rcpp_torchoptx_adam_zero_grad (torchoptx::optim_adam opt) {
+   torchoptx_adam_zero_grad(opt.get());
+}
+// [[Rcpp::export]]
 void rcpp_delete_optim_sgd (void* x) {
    delete_optim_sgd(x);
+}
+// [[Rcpp::export]]
+void rcpp_delete_optim_adam (void* x) {
+   delete_optim_adam(x);
 }

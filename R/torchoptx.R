@@ -11,3 +11,17 @@ optim_sgd <- torch::optimizer(
     optim_sgd_zero_grad(self$opt)
   }
 )
+
+#' @export
+optim_adam <- torch::optimizer(
+  "optim_sgd",
+  initialize = function(params) {
+    self$opt <- optim_adam_new(params)
+  },
+  step = function() {
+    optim_adam_step(self$opt)
+  },
+  zero_grad = function() {
+    optim_adam_zero_grad(self$opt)
+  }
+)

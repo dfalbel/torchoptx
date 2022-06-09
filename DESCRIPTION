@@ -20,9 +20,9 @@ Imports:
     Rcpp, 
     torch
 Remotes:
-    mlverse/torch
+    mlverse/torch,
     e-sensing/torchopt
 Suggests: 
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
     torchopt
 Config/testthat/edition: 3

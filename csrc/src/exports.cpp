@@ -35,10 +35,38 @@ TORCHOPTX_API void _torchoptx_sgd_zero_grad (void* opt) {
   } TORCHOPTX_HANDLE_EXCEPTION
   
 }
+optim_adam torchoptx_adam (torch::TensorList params);
+TORCHOPTX_API void* _torchoptx_adam (void* params) {
+  try {
+    return  make_raw::Adam(torchoptx_adam(from_raw::TensorList(params)));
+  } TORCHOPTX_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+void torchoptx_adam_step (optim_adam opt);
+TORCHOPTX_API void _torchoptx_adam_step (void* opt) {
+  try {
+     (torchoptx_adam_step(from_raw::Adam(opt)));
+  } TORCHOPTX_HANDLE_EXCEPTION
+  
+}
+void torchoptx_adam_zero_grad (optim_adam opt);
+TORCHOPTX_API void _torchoptx_adam_zero_grad (void* opt) {
+  try {
+     (torchoptx_adam_zero_grad(from_raw::Adam(opt)));
+  } TORCHOPTX_HANDLE_EXCEPTION
+  
+}
 void delete_optim_sgd (void* x);
 TORCHOPTX_API void _delete_optim_sgd (void* x) {
   try {
      (delete_optim_sgd(x));
+  } TORCHOPTX_HANDLE_EXCEPTION
+  
+}
+void delete_optim_adam (void* x);
+TORCHOPTX_API void _delete_optim_adam (void* x) {
+  try {
+     (delete_optim_adam(x));
   } TORCHOPTX_HANDLE_EXCEPTION
   
 }

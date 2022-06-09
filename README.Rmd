@@ -11,6 +11,7 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+torch::torch_manual_seed(1)
 ```
 
 # torchoptx
@@ -33,4 +34,14 @@ torchopt::test_optim(
     plot_each_step = TRUE
 )
 ```
+And for `optim_adam`:
 
+```{r adam, fig.show='animate', fig.height=8, fig.width=8, animation.hook='gifski', aniopts='loop', dpi=96, interval=0.1, out.height='50%', out.width='50%'}
+torchopt::test_optim(
+    optim = torchoptx::optim_adam,
+    test_fn = "beale",
+    opt_hparams = list(),
+    steps = 500,
+    plot_each_step = TRUE
+)
+```
