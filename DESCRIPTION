@@ -1,5 +1,5 @@
 Package: torchoptx
-Title: Long Long Term Memory Neural Network Cells
+Title: Fast Optimizers for Torch
 Version: 0.0.0.9000
 Authors@R: c(
     person("Daniel", "Falbel", email = "daniel@rstudio.com", role = c("aut", "cre", "cph")),
@@ -14,11 +14,15 @@ Roxygen: list(markdown = TRUE)
 SystemRequirements: C++11
 RoxygenNote: 7.1.2
 LinkingTo: 
-    Rcpp, torch
+    Rcpp, 
+    torch
 Imports: 
-    Rcpp, torch
+    Rcpp, 
+    torch
 Remotes:
     mlverse/torch
+    e-sensing/torchopt
 Suggests: 
     testthat (>= 3.0.0)
+    torchopt
 Config/testthat/edition: 3
