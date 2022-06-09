@@ -7,7 +7,7 @@ test_that("multiplication works", {
   h = torch::torch_randn(batch_size, state_size)
   C = torch::torch_randn(batch_size, state_size)
 
-  rnn = nn_lltm(input_features, state_size)
+  rnn = nn_torchoptx(input_features, state_size)
 
 
 
@@ -21,6 +21,6 @@ test_that("multiplication works", {
 
 test_that("raise exceptions", {
 
-  expect_error(lltm_raise_exception(), "Error from LLTM")
+  expect_error(torchoptx_raise_exception(), "Error from TORCHOPTX")
 
 })

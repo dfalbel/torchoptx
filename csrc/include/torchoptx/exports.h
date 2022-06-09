@@ -28,6 +28,8 @@ TORCHOPTX_API void* torchoptx_last_error ();
 TORCHOPTX_API void torchoptx_last_error_clear();
 
 TORCHOPTX_API void* _torchoptx_sgd (void* params);
+TORCHOPTX_API void _torchoptx_sgd_step (void* opt);
+TORCHOPTX_API void _torchoptx_sgd_zero_grad (void* opt);
 TORCHOPTX_API void _delete_optim_sgd (void* x);
 
 #ifdef RCPP_VERSION
@@ -35,6 +37,16 @@ inline void* torchoptx_sgd (void* params) {
   auto ret =  _torchoptx_sgd(params);
   host_exception_handler();
   return ret;
+}
+inline void torchoptx_sgd_step (void* opt) {
+   _torchoptx_sgd_step(opt);
+  host_exception_handler();
+  
+}
+inline void torchoptx_sgd_zero_grad (void* opt) {
+   _torchoptx_sgd_zero_grad(opt);
+  host_exception_handler();
+  
 }
 inline void delete_optim_sgd (void* x) {
    _delete_optim_sgd(x);

@@ -1,4 +1,4 @@
 library(testthat)
-library(lltm)
+library(torchoptx)
 
-test_check("lltm")
+test_check("torchoptx")
